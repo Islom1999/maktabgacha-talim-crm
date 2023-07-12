@@ -1,0 +1,134 @@
+<div class="pagetitle">
+    <h1>{{title}}</h1>
+</div>
+
+<section class="section">
+    <div class="row">
+       
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Groups</h2>
+                    <p>Guruhlar ro'yhati</p>
+                    <!-- Bordered Table -->
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ism Familiya</th>
+                                <th scope="col">Tugulgan sana</th>
+                                <th scope="col">Telefoni</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Arizasi</th>
+                                <th scope="col">O'zgartirish</th>
+                                <th scope="col">O'chirish</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each orders}}
+                            <tr>
+                            <tr>
+                                <th scope="row">{{@index}}</th>
+                                <td>{{fullname}}</td>
+                                <td>{{dateBirth}}</td>
+                                <td>{{phone}}</td>
+                                <td>{{address}}</td>
+                                <td>
+                                    {{descr}}
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#update-{{_id}}">Tasdiqlash</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="update-{{_id}}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Qo'shish</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form action="/admin/order/done/{{_id}}" method="post">
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="">Ism familiyasi</label>
+                                                            <input class="form-control" type="text" name="fullname"
+                                                                value="{{fullname}}">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="">Tugulgan sanasi</label>
+                                                            <input class="form-control" type="date" name="dateBirth"
+                                                                value="{{dateBirth}}">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="">Tarbiyalanib boshlagan
+                                                                sanasi</label>
+                                                            <input class="form-control" type="date" name="dateOld"
+                                                                value="{{dateOld}}">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="">Oylig to'lovi</label>
+                                                            <input class="form-control" type="number" name="amount"
+                                                                value="{{amount}}">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="">Guruhlari</label>
+                                                            <select class="form-select" name="groups" id="">
+                                                                {{#each ../ groups}}
+                                                                <option value="{{_id}}">{{title}}</option>
+                                                                {{/each}}
+                                                            </select>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Qaytish</button>
+                                                        <button type="submit" class="btn btn-primary">Qo'shish</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Bordered Table -->
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#delete{{_id}}">O'chirish</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="delete{{_id}}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">O'chirish</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h2>Chindan ham ochirmoqchimisiz</h2>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="/admin/order/delete/{{_id}}" method="post">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Qaytish</button>
+                                                        <button type="submit" class="btn btn-danger">O'chirish</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    <!-- End Bordered Table -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

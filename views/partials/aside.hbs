@@ -1,0 +1,80 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        {{#if isPublic}}
+            <li class="nav-item">
+                <a class="nav-link " href="/">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+
+            <li class="nav-heading">Pages</li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/orders">
+                    <i class="bi bi-person"></i>
+                    <span>Arizalar</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/orders/create">
+                    <i class="bi bi-person"></i>
+                    <span>Ariza yuborish</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
+
+
+        {{else}}
+            <li class="nav-item">
+                <a class="nav-link " href="/admin/">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+
+            
+            <li class="nav-heading">Pages</li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/orders">
+                    <i class="bi bi-person"></i>
+                    <span>Arizalar</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/workers">
+                    <i class="bi bi-question-circle"></i>
+                    <span>Xodimlar</span>
+                </a>
+            </li><!-- End F.A.Q Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/groups">
+                    <i class="bi bi-envelope"></i>
+                    <span>Guruhlar</span>
+                </a>
+            </li><!-- End Contact Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/settings">
+                    <i class="bi bi-card-list"></i>
+                    <span>Settings</span>
+                </a>
+            </li><!-- End Register Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/admins">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span>Admins</span>
+                </a>
+            </li><!-- End Login Page Nav -->
+        {{/if}}
+
+    </ul>
+
+</aside><!-- End Sidebar-->

@@ -1,0 +1,136 @@
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"></a></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active">General</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+
+                <!-- Sales Card -->
+                <div class="col-xxl-6 col-md-6">
+                    <div class="card info-card sales-card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Xodimlar <span>| Soni</span></h5>
+
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-cart"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>{{data.workersLength}} ta</h6>
+                                    <span class="text-success small pt-1 fw-bold">oxirgi oyda</span> <span
+                                        class="text-muted small pt-2 ps-1">ishlagan xodimlar</span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- End Sales Card -->
+
+                <!-- Revenue Card -->
+                <div class="col-xxl-6 col-md-6">
+                    <div class="card info-card revenue-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Bolalar <span>| soni</span></h5>
+
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-currency-dollar"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>{{data.childrenLength}} ta</h6>
+                                    <span class="text-success small pt-1 fw-bold">oxirgi oyda</span> <span
+                                        class="text-muted small pt-2 ps-1">kelgan bolalar</span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- End Revenue Card -->
+
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Xodimlar</h2>
+                    <p>Xodimlar ro'yhati</p>
+                    <!-- Bordered Table -->
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ism Familiya</th>
+                                <th scope="col">Lavozimi</th>
+                                <th scope="col">Tugulgan sana</th>
+                                <th scope="col">Ish boshlagan sanasi</th>
+                                <th scope="col">Oyligi</th>
+                                <th scope="col">Guruhlari</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each workers}}
+                            <tr>
+                            <tr>
+                                <th scope="row">{{@index}}</th>
+                                <td>{{fullname}}</td>
+                                <td>{{status}}</td>
+                                <td>{{dateBirth}}</td>
+                                <td>{{dateOld}}</td>
+                                <td>{{amount}}</td>
+                                <td>
+                                    {{#each groups}}
+                                    <li>{{title}}</li>
+                                    {{/each}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    <!-- End Bordered Table -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Groups</h2>
+                    <p>Guruhlar ro'yhati</p>
+                    <!-- Bordered Table -->
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nomi</th>
+                                <th scope="col">Guruh haqida malumot</th>
+                                <th scope="col">Tarbiyachi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each groups}}
+                            <tr>
+                                <th scope="row">{{@index}}</th>
+                                <td>{{title}}</td>
+                                <td>{{descr}}</td>
+                                <td>{{workers.fullname}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    <!-- End Bordered Table -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

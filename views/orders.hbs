@@ -1,0 +1,47 @@
+<div class="pagetitle">
+    <h1>{{title}}</h1>
+</div>
+
+<section class="section">
+    <div class="row">
+       
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Groups</h2>
+                    <p>Guruhlar ro'yhati</p>
+                    <!-- Bordered Table -->
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ism Familiya</th>
+                                <th scope="col">Tugulgan sana</th>
+                                <th scope="col">Telefoni</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Arizasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each orders}}
+                            <tr>
+                            <tr>
+                                <th scope="row">{{@index}}</th>
+                                <td>{{fullname}}</td>
+                                <td>{{dateBirth}}</td>
+                                <td>{{phone}}</td>
+                                <td>{{address}}</td>
+                                <td>
+                                    {{descr}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    <!-- End Bordered Table -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
